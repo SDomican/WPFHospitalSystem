@@ -1,0 +1,15 @@
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\bin\Debug\Domican_Stephen_Assignment1.exe.config
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\bin\Debug\Domican_Stephen_Assignment1.exe
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\bin\Debug\Domican_Stephen_Assignment1.pdb
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1.csprojAssemblyReference.cache
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\MainWindow.g.cs
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\App.g.cs
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1_MarkupCompile.cache
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1_MarkupCompile.lref
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\MainWindow.baml
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1.g.resources
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1.Properties.Resources.resources
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1.csproj.GenerateResource.cache
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1.csproj.CoreCompileInputs.cache
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1.exe
+C:\Users\Domo\Desktop\HDip\OOP\Assignment1\Domican_Stephen_Assignment1\Domican_Stephen_Assignment1\obj\Debug\Domican_Stephen_Assignment1.pdb
