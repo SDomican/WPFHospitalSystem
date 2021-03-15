@@ -8,14 +8,14 @@
         Title="Hospital System" Height="450" Width="800" TextBlock.TextAlignment="Center">
     <Grid Background="PaleGoldenrod">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40*"/>
-            <ColumnDefinition Width="40*"/>
-            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="26*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="40*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="45*"/>
         </Grid.RowDefinitions>
         <ListBox x:Name="lsbxWards" SelectionChanged="lsbxWards_SelectionChanged" Grid.Column="0" Grid.Row="1" Margin="5" />
         <ListBox x:Name="lsbxPatients" Grid.Column="1" Grid.Row="1" Margin="5" SelectionChanged="lsbxPatients_SelectionChanged"/>
@@ -25,22 +25,42 @@
         <Image x:Name="image" Grid.Column="2" Grid.Row="1" Margin="20,40,40,20"/>
         <TextBlock x:Name="txblPatientName" Grid.Row="1" Grid.Column="2" Text="" Margin="36,10,55,165" Background="White" TextAlignment="Center" FontWeight="Bold"/>
 
-        <Expander Margin="10" Header="Add New Ward" Grid.Column="0" Grid.Row="2">
+        <Expander Margin="5" Header="Add New Ward" Grid.Column="0" Grid.Row="2">
             <StackPanel Margin="10" Orientation="Vertical">
                 <DockPanel>
                     <TextBlock DockPanel.Dock="Left" Text="Name" Margin="5"/>
                     <TextBox DockPanel.Dock="Right" Margin="5"/>
                 </DockPanel>
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Left" Text="Capacity" Margin="5,10,5,5"/>
+                    <Slider x:Name="slider" Margin="5" Width="165" SmallChange="1" TickPlacement="TopLeft"/>
+                    <TextBlock x:Name="txblSliderCapacity" DockPanel.Dock="Right" Text="5" Margin="5,10,5,5"/>
+                </DockPanel>
+                <Button x:Name="btnAddWard" DockPanel.Dock="Bottom" Content="Add Ward" Margin="60,10,30,10" />
+                
             </StackPanel>
         </Expander>
 
-        <Expander Margin="10" Header="Add New Patient" Grid.Column="1" Grid.Row="2">
-            <StackPanel Margin="10" Orientation="Vertical">
+        <Expander Margin="10,5,5,5" Header="Add New Patient" Grid.Column="1" Grid.Row="2">
+            <StackPanel Margin="5" Orientation="Vertical">
                 <DockPanel>
-                    <TextBlock DockPanel.Dock="Left" Text="Name" Margin="5"/>
-                    <TextBox DockPanel.Dock="Right" Margin="5"/>
+                    <TextBlock DockPanel.Dock="Left" Text="Name" Margin="5,10,5,5" Width="40"/>
+                    <TextBox x:Name="txbPatientName" DockPanel.Dock="Right" Margin="5,10,10,5"/>
                 </DockPanel>
+                <DockPanel Margin="2">
+                    <TextBlock DockPanel.Dock="Left" Text="DOB" Margin="5,10,5,5" Width="40"/>
+                    <DatePicker x:Name="dtpDateOfBirth" Margin="5,10,5,5" Background="White"/>
+                </DockPanel>
+                <StackPanel Orientation="Horizontal" Margin="2">
+                    <TextBlock x:Name="txblBloodType" Text="Blood Type" Margin="5,8,5,5"/>
+                    <RadioButton Content="A" Margin="5,8,5,5"/>
+                    <RadioButton Content="B" Margin="5,8,5,5"/>
+                    <RadioButton Content="AB" Margin="5,8,5,5"/>
+                    <RadioButton Content="O" Margin="5,8,5,5"/>
+                </StackPanel>
+                <Button x:Name="btnAddPatient" Content="Add Patient" Margin="60,5,10,5"/>
             </StackPanel>
+            
         </Expander>
     </Grid>
 </Window>
