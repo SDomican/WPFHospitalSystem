@@ -53,12 +53,12 @@
                 </DockPanel>
                 <StackPanel Orientation="Horizontal" Margin="2">
                     <TextBlock x:Name="txblBloodType" Text="Blood Type" Margin="5,8,5,5"/>
-                    <RadioButton Content="A" Margin="5,8,5,5"/>
-                    <RadioButton Content="B" Margin="5,8,5,5"/>
-                    <RadioButton Content="AB" Margin="5,8,5,5"/>
-                    <RadioButton Content="O" Margin="5,8,5,5"/>
+                    <RadioButton x:Name="rbA" Content="A" Margin="5,8,5,5"/>
+                    <RadioButton x:Name="rbB" Content="B" Margin="5,8,5,5"/>
+                    <RadioButton x:Name="rbAB" Content="AB" Margin="5,8,5,5"/>
+                    <RadioButton x:Name="rbO" Content="O" Margin="5,8,5,5"/>
                 </StackPanel>
-                <Button x:Name="btnAddPatient" Content="Add Patient" Margin="60,5,10,5"/>
+                <Button x:Name="btnAddPatient" Content="Add Patient" Margin="60,5,10,5" Click="btnAddPatient_Click"/>
             </StackPanel>
             
         </Expander>

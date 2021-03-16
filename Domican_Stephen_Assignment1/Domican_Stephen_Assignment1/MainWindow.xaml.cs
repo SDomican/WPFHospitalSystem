@@ -21,11 +21,11 @@ namespace Domican_Stephen_Assignment1
 
     public partial class MainWindow : Window
     {
+        ObservableCollection<Ward> hospitalWards = new ObservableCollection<Ward>();
         public MainWindow()
         {
             InitializeComponent();
-
-            ObservableCollection<Ward> hospitalWards = new ObservableCollection<Ward>();
+            
 
             Patient p1 = new Patient("Chico", new DateTime(1990,06,21),BloodType.A);
             Patient p2 = new Patient("Harpo", new DateTime(1943,03,19), BloodType.O);
@@ -101,6 +101,92 @@ namespace Domican_Stephen_Assignment1
                 
 
             }
+
+        }
+
+        //Creates a patient object and adds it to the selected ward.
+        private void btnAddPatient_Click(object sender, RoutedEventArgs e)
+        {
+            //Booleans for which radio button is currently selected.
+            bool aClicked = rbA.IsChecked.Equals(true);
+            bool abClicked = rbAB.IsChecked.Equals(true);
+            bool bClicked = rbB.IsChecked.Equals(true);
+            bool oClicked = rbO.IsChecked.Equals(true);
+
+            Ward selectedWard = lsbxWards.SelectedItem as Ward;
+            string name = txbPatientName.Text;
+            BloodType bloodType = BloodType.A;
+
+
+            //Creates message for user if no (or an invalid) patient date of birth has been selected from the date picker.
+            if (dtpDateOfBirth.SelectedDate == null || dtpDateOfBirth.SelectedDate > DateTime.Now)
+            {
+                MessageBox.Show("Please select a valid patient date of birth!");
+                return;
+            }
+
+            DateTime patientDOB = dtpDateOfBirth.SelectedDate.Value;
+
+            //Creates message for user if no blood type has been selected from the radio buttons.
+            if (aClicked == false && bClicked == false && abClicked == false && oClicked == false)
+            {
+                MessageBox.Show("Please select a blood type!");
+                return;
+            }
+
+
+            //Creates message for user if no ward is currently selected
+            if(selectedWard == null)
+            {
+                MessageBox.Show("Please select a ward!");
+                return;
+            }
+
+            //Creates message for user if no patient name is currently entered
+            if (name.Equals(""))
+            {
+                MessageBox.Show("Please enter a patient name!");
+                return;
+            }
+
+            //Creates message for user if no patient date of birth is currently entered
+            if (patientDOB == null)
+            {
+                MessageBox.Show("Please enter a patient date of birth!");
+                return;
+            }
+
+            //Sets BloodType enum to appropriate blood type depedning on which radio button is checked.
+            if (aClicked)
+                bloodType = BloodType.A;
+            else if (abClicked)
+                bloodType = BloodType.AB;
+            else if(bClicked)
+                bloodType = BloodType.B;
+            else if(oClicked)
+                bloodType = BloodType.O;
+
+
+            //Creates Patient object from the data provided by the user.
+            Patient newPatient = new Patient(name, patientDOB, bloodType);
+
+
+            //loops through hospital wards observable collection, finds one that matches the selected ward, and adds the new patient object to it (if there is capacity).
+            foreach(Ward ward in hospitalWards)
+            {
+                if (ward.Name.Equals(selectedWard.Name))
+                {
+                    bool addPatientStatus = ward.AddPatient(newPatient);
+
+                    if(addPatientStatus == false)
+                    {
+                        MessageBox.Show("Ward is at capacity!");
+                    }
+                }
+            }
+
+            //Updates patient listBox
+            lsbxPatients.ItemsSource = selectedWard.Patients;
 
         }
     }
