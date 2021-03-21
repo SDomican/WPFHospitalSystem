@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +23,8 @@ namespace Domican_Stephen_Assignment1
 
     public partial class MainWindow : Window
     {
-        ObservableCollection<Ward> hospitalWards = new ObservableCollection<Ward>();
+        static ObservableCollection<Ward> hospitalWards = new ObservableCollection<Ward>();
+        static int wardCount = hospitalWards.Count;
         public MainWindow()
         {
             InitializeComponent();
@@ -47,6 +50,9 @@ namespace Domican_Stephen_Assignment1
 
             lsbxWards.ItemsSource = hospitalWards;
 
+            //Displays count of hospital wards
+            txblWards.Text = String.Format("Ward List ({0})",wardCount);
+
         }
 
         //Displays the patients in the patients listBox when a Ward is selected from the Ward listBox.
@@ -56,11 +62,15 @@ namespace Domican_Stephen_Assignment1
 
             Ward selectedWard = lsbxWards.SelectedItem as Ward;
 
-            foreach(Patient patient in selectedWard.Patients)
+            if(selectedWard != null)
             {
-                patients.Add(patient);
+                foreach (Patient patient in selectedWard.Patients)
+                {
+                    patients.Add(patient);
+                }
             }
 
+            
             lsbxPatients.ItemsSource = patients;
 
         }
@@ -156,7 +166,7 @@ namespace Domican_Stephen_Assignment1
                 return;
             }
 
-            //Sets BloodType enum to appropriate blood type depedning on which radio button is checked.
+            //Sets BloodType enum to appropriate blood type depending on which radio button is checked.
             if (aClicked)
                 bloodType = BloodType.A;
             else if (abClicked)
@@ -188,6 +198,53 @@ namespace Domican_Stephen_Assignment1
             //Updates patient listBox
             lsbxPatients.ItemsSource = selectedWard.Patients;
 
+        }
+
+        //Adds a new ward to the hospitalWord observable collection
+        private void btnAddWard_Click(object sender, RoutedEventArgs e)
+        {
+            string wardName = txblWardName.Text;
+            int newWardCapacity = (int)slider.Value;
+
+
+            //Creates message for user if no ward name is currently entered
+            if (wardName.Equals(""))
+            {
+                MessageBox.Show("Please enter a ward name!");
+                return;
+            }
+
+            Ward newWard = new Ward(wardName, newWardCapacity);
+
+            hospitalWards.Add(newWard);
+
+            //Updates count of how many wards there are in the observable collection.
+            wardCount = hospitalWards.Count;
+            txblWards.Text = String.Format("Ward List ({0})", wardCount);
+
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            using (StreamWriter sw = new StreamWriter(@"c:\temp\hospital.json"))
+            {
+
+                string json = JsonConvert.SerializeObject(hospitalWards, Formatting.Indented);
+
+                sw.Write(json);
+            }
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            using (StreamReader sr = new StreamReader(@"c:\temp\hospital.json"))
+            {
+                string json = sr.ReadToEnd();
+
+                hospitalWards = JsonConvert.DeserializeObject<ObservableCollection<Ward>>(json);
+            }
+
+            lsbxWards.ItemsSource = hospitalWards;
         }
     }
 }
