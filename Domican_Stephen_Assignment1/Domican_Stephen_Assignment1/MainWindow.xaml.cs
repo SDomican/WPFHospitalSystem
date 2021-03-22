@@ -152,12 +152,6 @@ namespace Domican_Stephen_Assignment1
                 return;
             }
 
-            //Creates message for user if no patient name is currently entered
-            if (name.Equals(""))
-            {
-                MessageBox.Show("Please enter a patient name!");
-                return;
-            }
 
             //Creates message for user if no patient date of birth is currently entered
             if (patientDOB == null)
@@ -206,14 +200,6 @@ namespace Domican_Stephen_Assignment1
             string wardName = txblWardName.Text;
             int newWardCapacity = (int)slider.Value;
 
-
-            //Creates message for user if no ward name is currently entered
-            if (wardName.Equals(""))
-            {
-                MessageBox.Show("Please enter a ward name!");
-                return;
-            }
-
             Ward newWard = new Ward(wardName, newWardCapacity);
 
             hospitalWards.Add(newWard);
@@ -245,6 +231,26 @@ namespace Domican_Stephen_Assignment1
             }
 
             lsbxWards.ItemsSource = hospitalWards;
+        }
+
+        private void txblWardName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txblWardName.Text != "")
+            {
+                btnAddWard.IsEnabled = true;
+            }
+            else
+                btnAddWard.IsEnabled = false;
+        }
+
+        private void txbPatientName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txbPatientName.Text != "")
+            {
+                btnAddPatient.IsEnabled = true;
+            }
+            else
+                btnAddPatient.IsEnabled = false;
         }
     }
 }
