@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Domican_Stephen_Assignment1"
         mc:Ignorable="d"
-        Title="Hospital System" Height="450" Width="800" TextBlock.TextAlignment="Center">
+        Title="Hospital System" TextBlock.TextAlignment="Center" Height="450" Width="800">
     <Grid Background="PaleGoldenrod">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="37*"/>
@@ -13,19 +13,46 @@
             <ColumnDefinition Width="26*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="45*"/>
             <RowDefinition Height="45*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="lsbxWards" SelectionChanged="lsbxWards_SelectionChanged" Grid.Column="0" Grid.Row="1" Margin="5" />
-        <ListBox x:Name="lsbxPatients" Grid.Column="1" Grid.Row="1" Margin="5" SelectionChanged="lsbxPatients_SelectionChanged"/>
-        <TextBlock x:Name="txblWards" Text="Ward List (0)" Grid.Column="0" Grid.Row="0" Background="Red" Margin="1"/>
-        <TextBlock x:Name="txblPatients" Text="Patients" Grid.Column="1" Grid.Row="0" Background="Red" Margin="1"/>
-        <TextBlock x:Name="txblDetails" Text="Details" Grid.Column="2" Grid.Row="0" Background="Red" Margin="2"/>
+        <Rectangle  Grid.Column="0" Grid.Row="1" Fill="LightGray" Margin="5,0,0,0"></Rectangle>
+        <Rectangle  Grid.Column="1" Grid.Row="1" Fill="LightGray" Margin="0,0,0,0"></Rectangle>
+        <ListBox x:Name="lsbxWards" SelectionChanged="lsbxWards_SelectionChanged" Grid.Column="0" Grid.Row="1" Margin="5,2,2,0" />
+        <ListBox x:Name="lsbxPatients" Grid.Column="1" Grid.Row="1" Margin="2,2,2,0" SelectionChanged="lsbxPatients_SelectionChanged"/>
+        <TextBlock x:Name="txblWards" Text="Ward List (0)" Grid.Column="0" Grid.Row="0" Margin="10" FontWeight="Bold" TextAlignment="Left" Padding="3">
+            <TextBlock.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="White" Offset="0.0" />
+                    <GradientStop Color="LightGoldenrodYellow" Offset="0.3" />
+                    <GradientStop Color="PaleGoldenrod" Offset="1.0" />
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="txblPatients" Text="Patients" Grid.Column="1" Grid.Row="0" Margin="10" FontWeight="Bold" TextAlignment="Left" Padding="3">
+            <TextBlock.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="White" Offset="0.0" />
+                    <GradientStop Color="LightGoldenrodYellow" Offset="0.3" />
+                    <GradientStop Color="PaleGoldenrod" Offset="1.0" />
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="txblDetails" Text="Details" Grid.Column="2" Grid.Row="0" Margin="10" FontWeight="Bold" TextAlignment="Left" Padding="3">
+            <TextBlock.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="White" Offset="0.0" />
+                    <GradientStop Color="LightGoldenrodYellow" Offset="0.3" />
+                    <GradientStop Color="PaleGoldenrod" Offset="1.0" />
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+        <Rectangle x:Name="rectangle" Grid.Column="2" Grid.Row="1" Fill="White" Margin="0,0,5,0"></Rectangle>
         <Image x:Name="image" Grid.Column="2" Grid.Row="1" Margin="20,40,40,20"/>
-        <TextBlock x:Name="txblPatientName" Grid.Row="1" Grid.Column="2" Text="" Margin="36,10,55,175" Background="White" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBlock x:Name="txblPatientName" Grid.Row="1" Grid.Column="2" Text="" Margin="36,10,55,155" Background="White" TextAlignment="Center" FontWeight="Bold"/>
 
-        <Expander Margin="5" Header="Add New Ward" Grid.Column="0" Grid.Row="2">
+        <Expander Margin="5" Header="Add New Ward" Grid.Column="0" Grid.Row="2" Background="LightGoldenrodYellow">
             <StackPanel Margin="10" Orientation="Vertical">
                 <DockPanel>
                     <TextBlock DockPanel.Dock="Left" Text="Name" Margin="5"/>
@@ -41,7 +68,7 @@
             </StackPanel>
         </Expander>
 
-        <Expander Margin="10,5,5,5" Header="Add New Patient" Grid.Column="1" Grid.Row="2">
+        <Expander Margin="10,5,5,5" Header="Add New Patient" Grid.Column="1" Grid.Row="2" Background="LightGoldenrodYellow">
             <StackPanel Margin="5" Orientation="Vertical">
                 <DockPanel>
                     <TextBlock DockPanel.Dock="Left" Text="Name" Margin="5,10,5,5" Width="40"/>
@@ -61,7 +88,7 @@
                 <Button x:Name="btnAddPatient" Content="Add Patient" Margin="60,5,10,5" Click="btnAddPatient_Click" IsEnabled="False"/>
             </StackPanel>
         </Expander>
-        <StackPanel  Grid.Column="2" Grid.Row="2" >
+        <StackPanel  Grid.Column="2" Grid.Row="2" Background="White" Margin="0,0,5,5">
             <Button x:Name="btnSave" Content="Save" Margin="10,10,10,10" Click="btnSave_Click" />
         <Button x:Name="btnLoad" Content="Load" Margin="10,10,10,10" Click="btnLoad_Click" />
         </StackPanel>

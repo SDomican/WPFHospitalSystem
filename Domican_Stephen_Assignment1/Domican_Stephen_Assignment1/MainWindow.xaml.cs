@@ -24,7 +24,7 @@ namespace Domican_Stephen_Assignment1
     public partial class MainWindow : Window
     {
         static ObservableCollection<Ward> hospitalWards = new ObservableCollection<Ward>();
-        static int wardCount = hospitalWards.Count;
+        static int wardCount;
         public MainWindow()
         {
             InitializeComponent();
@@ -50,8 +50,10 @@ namespace Domican_Stephen_Assignment1
 
             lsbxWards.ItemsSource = hospitalWards;
 
+            wardCount = hospitalWards.Count;
+
             //Displays count of hospital wards
-            txblWards.Text = String.Format("Ward List ({0})",wardCount);
+            txblWards.Text = String.Format("Ward List ({0})", wardCount);
 
         }
 
@@ -229,6 +231,10 @@ namespace Domican_Stephen_Assignment1
 
                 hospitalWards = JsonConvert.DeserializeObject<ObservableCollection<Ward>>(json);
             }
+
+            //Updates count of how many wards there are in the observable collection.
+            wardCount = hospitalWards.Count;
+            txblWards.Text = String.Format("Ward List ({0})", wardCount);
 
             lsbxWards.ItemsSource = hospitalWards;
         }
