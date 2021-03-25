@@ -52,7 +52,14 @@
         <Image x:Name="image" Grid.Column="2" Grid.Row="1" Margin="20,40,40,20"/>
         <TextBlock x:Name="txblPatientName" Grid.Row="1" Grid.Column="2" Text="" Margin="36,10,55,155" Background="White" TextAlignment="Center" FontWeight="Bold"/>
 
-        <Expander Margin="5" Header="Add New Ward" Grid.Column="0" Grid.Row="2" Background="LightGoldenrodYellow">
+        <Expander Margin="5" Header="Add New Ward" Grid.Column="0" Grid.Row="2">
+            <Expander.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="LightBlue" Offset="0.0" />
+                    <GradientStop Color="LightGoldenrodYellow" Offset="0.3" />
+                    <GradientStop Color="PaleGoldenrod" Offset="1.0" />
+                </LinearGradientBrush>
+            </Expander.Background>
             <StackPanel Margin="10" Orientation="Vertical">
                 <DockPanel>
                     <TextBlock DockPanel.Dock="Left" Text="Name" Margin="5"/>
@@ -68,7 +75,14 @@
             </StackPanel>
         </Expander>
 
-        <Expander Margin="10,5,5,5" Header="Add New Patient" Grid.Column="1" Grid.Row="2" Background="LightGoldenrodYellow">
+        <Expander Margin="10,5,5,5" Header="Add New Patient" Grid.Column="1" Grid.Row="2">
+            <Expander.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="LightBlue" Offset="0.0" />
+                    <GradientStop Color="LightGoldenrodYellow" Offset="0.3" />
+                    <GradientStop Color="PaleGoldenrod" Offset="1.0" />
+                </LinearGradientBrush>
+            </Expander.Background>
             <StackPanel Margin="5" Orientation="Vertical">
                 <DockPanel>
                     <TextBlock DockPanel.Dock="Left" Text="Name" Margin="5,10,5,5" Width="40"/>
